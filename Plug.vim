@@ -159,25 +159,8 @@ call plug#begin('~/.vim/plugged')
   " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
   Plug 'tpope/vim-unimpaired'
 
-  " Speed up Vim by updating folds only when called-for.
-  Plug 'Konfekt/FastFold'
-  if $ALL_PLUGINS == 'true' || has('nvim')
-    " provides an asynchronous keyword completion system in the current buffer
-    Plug 'Shougo/deoplete.nvim'
-    " deoplete.nvim source for Golang and gocode or vim-go
-    Plug 'zchee/deoplete-go', { 'do': 'make' }
-  endif
-
-  if $ALL_PLUGINS == 'true' || !has('lua')
-    " Ultimate auto-completion system for Vim. Note: It is not maintained well. You should use neocomplete instead.
-    Plug 'Shougo/neocomplcache.vim'
-  endif
-  if $ALL_PLUGINS == 'true' || has('lua')
-    " Next generation completion framework after neocomplcache
-    Plug 'Shougo/neocomplete.vim'
-  endif
-  " displays information in echo area from echodoc plugin.
-  Plug 'Shougo/echodoc.vim'
+  " A code-completion engine for Vim http://valloric.github.io/YouCompleteMe/
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " }}}
 
 " Text objects {{{

@@ -41,14 +41,13 @@ runtime! config/plugin/signify.vim
 runtime! config/plugin/tagbar.vim
 runtime! config/plugin/undotree.vim
 runtime! config/plugin/ultisnips.vim
+runtime! config/plugin/youcompleteme.vim
 
 if has('nvim')
   runtime! config/plugin/fzf.vim
   runtime! config/plugin/nvim/neomake.vim
-  runtime! config/plugin/nvim/deoplete.vim
 else
   runtime! config/plugin/ctrlp.vim
-  runtime! config/plugin/neocomplete.vim
   runtime! config/plugin/syntastic.vim
 endif
 

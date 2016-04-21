@@ -13,6 +13,7 @@ if [ -d "$HOME/.vim" ]; then
   if [ $FORCE == 1 ]; then
     echo -e "${yellow}${bold}WARN${end_color}: Moving existing vim config to $HOME/.vim.old"
     mv $HOME/.vim $HOME/.vim.old
+    mv $HOME/.vimrc $HOME/.vimrc.old
   else
     echo -e "${red}${bold}ERROR${end_color}: Found existing vim config. Aborting. Run with FORCE=1 to override"
     exit 1

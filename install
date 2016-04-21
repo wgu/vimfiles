@@ -1,0 +1,46 @@
+#!/bin/bash
+
+green='\033[0;32m'
+yellow='\033[0;33m'
+red='\033[0;31m'
+bold=`tput bold`
+normal=`tput sgr0`
+end_color='\033[0;m'
+
+print_usage() {
+  echo -e "Unsupported option: $@"
+  echo -e "Supported options:"
+  echo -e "\t-f, --force          \tReplace existing vim installation."
+}
+
+FORCE=0
+
+while [[ $# > 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -f|--force)
+      FORCE=1
+      shift
+      ;;
+    *)
+      print_usage $key
+      exit 1
+      ;;
+  esac
+  shift
+done
+
+if [ -d "$HOME/.vim" ]; then
+  if [ $FORCE == 0 ]; then
+    echo -e "${red}${bold}ERROR${end_color}: Found existing vim config. Aborting${end_color}"
+    exit 1
+  else
+    echo -e "${yellow}${bold}WARN${end_color}: Moving existing vim config to $HOME/.vim.old${end_color}"
+    mv $HOME/.vim $HOME/.vim.old
+  fi
+fi
+
+git clone http://github.com/luan/vimfiles.git $HOME/.vim
+$HOME/.vim/install

@@ -95,6 +95,6 @@ set novisualbell
 
 " Mouse {{{
 set mousehide  " Hide mouse after chars typed
-set mouse=a  " Mouse in all modes
+" set mouse=a  " Mouse in all modes
 " }}}
 
